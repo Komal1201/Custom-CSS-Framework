@@ -1,0 +1,25 @@
+@mixin text-color($color, $name) {
+  .text-#{$name} {
+    color: $color !important;
+  }
+}
+
+@mixin bg-color($color, $name) {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+}
+
+@each $name, $color in (
+  primary: $primary-color,
+  secondary: $secondary-color,
+  success: $success-color,
+  danger: $danger-color,
+  warning: $warning-color,
+  info: $info-color,
+  light: $light-color,
+  dark: $dark-color
+) {
+  @include text-color($color, $name);
+  @include bg-color($color, $name);
+}
